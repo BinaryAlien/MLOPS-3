@@ -6,9 +6,10 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 import mlflow
+import os
 
-MLFLOW_HOST = "127.0.0.1"
-MLFLOW_PORT = 8080
+MLFLOW_HOST = os.getenv("MLFLOW_HOST", "127.0.0.1")
+MLFLOW_PORT = os.getenv("MLFLOW_PORT", "8080")
 
 mlflow.set_tracking_uri(uri=f"http://{MLFLOW_HOST}:{MLFLOW_PORT}")
 
