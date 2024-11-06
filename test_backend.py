@@ -75,11 +75,17 @@ class TestPredict(unittest.TestCase):
 class TestUpdateModel(unittest.TestCase):
     def test_update_v1(self):
         metadata = update_model("runs:/5059a130c117484e9f2f1049b8863aa5/iris_model")
-        self.assertEqual("b58cb3b5633945608ad7bb67cc41bd5c", metadata["model_uuid"])
+        self.assertEqual(
+            "b58cb3b5633945608ad7bb67cc41bd5c",
+            metadata["next"]["model_uuid"],
+        )
 
     def test_update_v2(self):
         metadata = update_model("runs:/80b9fd3513d245f6b1ffb9387d39ca7f/iris_model")
-        self.assertEqual("5d48e96a3ce84f898b67902b534b8c6c", metadata["model_uuid"])
+        self.assertEqual(
+            "5d48e96a3ce84f898b67902b534b8c6c",
+            metadata["next"]["model_uuid"],
+        )
 
 
 if __name__ == "__main__":
